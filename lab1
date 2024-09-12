@@ -1,0 +1,19 @@
+import numpy as np
+import matplotlib.pyplot as plt
+X = np.array([170, 162, 183, 175, 170, 155, 158, 172, 165, 160, 
+              168, 170, 175, 182, 180, 168, 155, 165, 171, 174,
+              160, 165, 175, 180, 158, 170, 173, 169, 166, 170,
+              165, 160, 172, 168, 174, 165]).reshape(-1, 1)
+
+Y = np.array([60, 55, 75, 70, 68, 50, 55, 65, 62, 58, 
+              60, 65, 70, 75, 72, 65, 52, 60, 62, 68,
+              58, 62, 70, 75, 55, 68, 70, 63, 60, 65,
+              62, 58, 72, 65, 70, 68]).reshape(-1, 1)
+beta = np.linalg.inv(X.T @ X) @ (X.T @ Y)
+plt.scatter(X, Y, color='blue', label='Dữ liệu thực tế')
+plt.plot(X, X @ beta, color='red', label='Đường hồi quy')
+plt.xlabel('Chiều cao')
+plt.ylabel('Cân nặng')
+plt.title('Chiều cao và cân nặng của sinh viên VLU')
+plt.legend()
+plt.show()
